@@ -13,8 +13,9 @@ V2 uses four functional SOPs:
 
 It also includes:
 
-- `cursor-implementation-spec.md` — instructions for the Cursor/Slack orchestration layer
 - `GAE_Top_Accounts_Context_23september.xlsx` — current account ownership and relevance context
+
+The human cutover checklist is `../cursor-implementation-spec.md` at the repository root. It is not an SOP.
 
 ## Core design
 
@@ -66,7 +67,7 @@ Use continuous weekly review windows with no gaps. A signal belongs to the perio
 1. Put the four V2 SOPs in place.
 2. Use the included account-context workbook as the portfolio source of truth.
 3. Configure Max/Jessica/Filip Slack routing in Cursor.
-4. Follow `cursor-implementation-spec.md` to test ownership, isolation, suppression, weekly windows, and delivery.
+4. Follow `../cursor-implementation-spec.md` to test ownership, isolation, suppression, weekly windows, and delivery.
 5. Only then switch unattended weekly delivery on.
 
 Do not maintain the old six signal SOPs alongside V2 as active decision-making logic; that would reintroduce the routing and noise problems V2 is designed to remove.

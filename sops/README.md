@@ -7,7 +7,7 @@ Active decision logic is the V2 workflow:
 - `sop-account-reasoning-relevance-v2.md`
 - `sop-master-digest-v2.md`
 
-`cursor-implementation-spec.md` is the orchestration spec. `v2-package-readme.md` is the package note that arrived with the 24 September 2026 replacement.
+`v2-package-readme.md` is the package note that arrived with the 24 September 2026 replacement. The human cutover checklist is `../cursor-implementation-spec.md`. It is not an SOP.
 
 The portfolio source of truth is `account-context/GAE_Top_Accounts_Context_23september.xlsx`.
 

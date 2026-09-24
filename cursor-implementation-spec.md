@@ -1,5 +1,7 @@
 # Cursor Implementation Spec — Weekly Account Signals V2
 
+Human checklist for turning on rep-level Slack routing. This is not an SOP, and Cursor does not load it. Active run instructions are `AGENTS.md`, the four files in `sops/`, and `.cursor/rules/gae-accounts-signal-execution.mdc`.
+
 ## Goal
 
 Implement the V2 SOP package as one weekly portfolio workflow that researches all accounts once, then distributes included insights to the Account Manager who owns each account.

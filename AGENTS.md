@@ -19,6 +19,8 @@ Portfolio source of truth: `account-context/GAE_Top_Accounts_Context_23september
 
 The chain is Change Detection → Evidence Enrichment → Account Relevance → Include/Suppress. A quiet week is a valid result. There is no Monitor category and no minimum signal count.
 
+`cursor-implementation-spec.md` at the repository root is a human checklist for turning on rep-level Slack routing. It is not an SOP, and Cursor does not load it. Until that checklist is done and this file says routing is on, follow the test hold below.
+
 ## Test hold — read this before any Slack send
 
 Rep-level Slack routing is **not** active.
