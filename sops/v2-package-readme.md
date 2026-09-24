@@ -1,5 +1,16 @@
 # AIHR Weekly Account Signals V2 — Final Replacement Package
 
+## Status in this repository
+
+This is the package note that arrived on 24 September 2026. The Delivery model and Cutover order sections below describe the target design with per-rep routing. What is live in this repository differs in four ways:
+
+- **Routing is off.** From 28 September 2026 the weekly Cursor automation researches all 36 accounts and sends one combined digest to Max. Each item names its `Rep's Name`. Jessica and Filip get nothing directly. `AGENTS.md` holds these rules and overrides the per-rep delivery section of `sop-master-digest-v2.md` until routing is turned on.
+- **Unattended delivery is on before cutover step 3.** Steps 3–5 of the cutover order are still open.
+- **A search check was added.** It is not part of this package. The agent logs three searches per account, and `scripts/check-search-log.mjs` must print PASS before any Slack message. See `scripts/README.md`.
+- **V1 is retired.** The six-signal SOPs, old account table, agents, and templates are in `v1-archived/`.
+
+The four SOPs in this folder and the workbook are unchanged from the package.
+
 ## What this replaces
 
 This package replaces the previous architecture of one master SOP plus six equal signal-category SOPs.
@@ -13,7 +24,7 @@ V2 uses four functional SOPs:
 
 It also includes:
 
-- `GAE_Top_Accounts_Context_23september.xlsx` — current account ownership and relevance context
+- `GAE_Top_Accounts_Context_23september.xlsx` — current account ownership and relevance context, stored in `../account-context/`
 
 The human cutover checklist is `../cursor-implementation-spec.md` at the repository root. It is not an SOP.
 

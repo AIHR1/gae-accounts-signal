@@ -18,6 +18,6 @@ The column header says organizational scope. The hidden `Dropdown Lists` sheet o
 
 The 36 filled Q2 cells do not use those geographic values. They use the reach categories in `sop-account-reasoning-relevance-v2.md`: Specific HR function, Multiple HR functions, Most / all of the HR organization, Small group within HR, and Unclear.
 
-This test reasons on the filled cell as **breadth of AIHR reach within HR**. That matches the relevance SOP and the actual cell contents. The header and dropdown were not rewritten, because that would change the workbook the sender asked to test.
+Runs reason on the filled cell as **breadth of AIHR reach within HR**. That matches the relevance SOP and the actual cell contents. The header and dropdown were not rewritten, because the workbook is Max's file and stays as he sent it.
 
 `v1-archived/accounts-in-scope.md` is the retired V1 account table. It is a different list and must not be used for V2 ownership or relevance.

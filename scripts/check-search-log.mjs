@@ -5,7 +5,7 @@
  * actually open. A search with only irrelevant results passes. A missing search, a search with no
  * results listed, or a link that does not exist fails.
  *
- *   node scripts/check-search-log.mjs --run-id 2026-09-15-to-2026-09-21
+ *   node scripts/check-search-log.mjs --run-id 2026-09-21-to-2026-09-27
  *
  * Reads  runs/{run-id}/search-log-{run-id}.json   (format: scripts/README.md)
  * Writes runs/{run-id}/search-check-{run-id}.json

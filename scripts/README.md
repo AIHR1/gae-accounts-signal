@@ -8,7 +8,7 @@ For each search, the agent writes the query and the top results it got — at le
 
 ```json
 {
-  "run_id": "2026-09-15-to-2026-09-21",
+  "run_id": "2026-09-21-to-2026-09-27",
   "searches": [
     {
       "row": 2,
@@ -39,7 +39,7 @@ Self-test, no internet needed: `node scripts/test-check-search-log.mjs`.
 
 ## `post-digest-slack-webhook.mjs`
 
-**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (post via `slack_send_message` using **`channel_id` `D01DFNA0GBH`**; **`MAX_SLACK_CHANNEL_ID`** in **`.cursor/environment.json`** mirrors the same value). **Do not** rely on Cursor’s built-in **Send to Slack** for that destination.
+**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (post via `slack_send_message` using **`channel_id` `D01DFNA0GBH`**). **Do not** rely on Cursor’s built-in **Send to Slack** for that destination.
 
 Use this webhook helper only when:
 
@@ -52,7 +52,7 @@ Use this webhook helper only when:
 
 ```bash
 export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..."
-node scripts/post-digest-slack-webhook.mjs --file runs/2026-W18/slack-summary-2026-W18.md
+node scripts/post-digest-slack-webhook.mjs --file runs/2026-09-21-to-2026-09-27/master-digest-2026-09-21-to-2026-09-27.md
 ```
 
 Requires **Node.js 18+** (global `fetch`).

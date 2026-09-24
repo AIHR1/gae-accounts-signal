@@ -19,24 +19,24 @@ Portfolio source of truth: `account-context/GAE_Top_Accounts_Context_23september
 
 The chain is Change Detection → Evidence Enrichment → Account Relevance → Include/Suppress. A quiet week is a valid result. There is no Monitor category and no minimum signal count.
 
-`cursor-implementation-spec.md` at the repository root is a human checklist for turning on rep-level Slack routing. It is not an SOP, and Cursor does not load it. Until that checklist is done and this file says routing is on, follow the test hold below.
+`cursor-implementation-spec.md` at the repository root is a human checklist for turning on rep-level Slack routing. It is not an SOP, and Cursor does not load it. Until that checklist is done and this file says routing is on, follow the combined-delivery rules below.
 
-## Test hold — read this before any Slack send
+## Combined delivery to Max — read this before any Slack send
 
-Rep-level Slack routing is **not** active.
+Rep-level Slack routing is **not** active. The per-rep delivery section of `sops/sop-master-digest-v2.md` does not apply until it is.
 
-Until that phase is explicitly turned on:
+Until routing is explicitly turned on:
 
-- Research the full workbook portfolio.
+- Research the full workbook portfolio: every account for Max, Jessica, and Filip.
 - Write one internal run record and one combined digest.
 - Put `Rep's Name` on each included item so ownership is visible.
 - Log every search in `runs/{run-id}/search-log-{run-id}.json` and run `node scripts/check-search-log.mjs --run-id {run-id}` (see `scripts/README.md`). No Slack message unless it prints PASS.
-- Send at most one combined digest to the existing destination, Slack DM `D01DFNA0GBH` (`MAX_SLACK_CHANNEL_ID` in `.cursor/environment.json`).
+- Send at most one combined digest to Max, Slack DM `D01DFNA0GBH`.
 - Do not send separate digests to Jessica or Filip.
 - Do not send an empty “nothing this week” message.
-- The paste-ready weekly prompt is `.cursor/automation-weekly-digest-prompt.md`. It still sends one combined digest. An automation already saved in the Cursor UI does not change until that prompt is pasted there.
+- The paste-ready weekly prompt is `.cursor/automation-weekly-digest-prompt.md`. An automation already saved in the Cursor UI does not change until that prompt is pasted there.
 
-The 15–21 September 2026 run is a manual test of the research logic, not the cutover to unattended rep routing.
+The 15–21 September 2026 run was a manual test of the research logic. From 28 September 2026 the weekly automation runs unattended with this combined delivery. The plan is two weekly runs, 28 September and 5 October 2026, then a review with Max before routing. The automation does not stop by itself after two weeks.
 
 ## Slack
 
@@ -52,4 +52,4 @@ If Slack MCP is unavailable and only a webhook exists, `scripts/post-digest-slac
 
 ## Environment
 
-No npm install is required for the digest. `.cursor/environment.json` sets a no-op install and `MAX_SLACK_CHANNEL_ID`.
+No npm install is required for the digest. `.cursor/environment.json` sets a no-op install. The search check needs Node 18 or later and internet access.

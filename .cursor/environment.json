@@ -1,6 +1,3 @@
 {
-  "install": "echo \"gae-accounts-signal: markdown-only vault; no package install\"",
-  "env": {
-    "MAX_SLACK_CHANNEL_ID": "D01DFNA0GBH"
-  }
+  "install": "echo \"gae-accounts-signal: markdown-only vault; no package install\""
 }

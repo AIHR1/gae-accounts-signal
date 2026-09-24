@@ -5,7 +5,7 @@
  *
  * Usage:
  *   SLACK_WEBHOOK_URL=https://hooks.slack.com/services/... \
- *     node scripts/post-digest-slack-webhook.mjs --file runs/2026-W18/slack-summary-2026-W18.md
+ *     node scripts/post-digest-slack-webhook.mjs --file runs/2026-09-21-to-2026-09-27/master-digest-2026-09-21-to-2026-09-27.md
  *   node scripts/post-digest-slack-webhook.mjs --text "Short plain summary"
  */
 

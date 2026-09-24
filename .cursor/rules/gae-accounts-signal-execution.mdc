@@ -14,5 +14,5 @@ When the user asks for an account-signals run, digest, or SOP execution in this 
 4. Write all outputs under `runs/{run-id}/`. Include the queries actually run, candidates, early enrichment suppresses, final Include/Suppress decisions, and the account-context fields used for each included or suppressed candidate.
 5. Hiring volume, a bare leadership appointment, an HR-system go-live, awards, and generic leadership commentary are not standalone signals.
 6. Separate fact from hypothesis in anything an Account Manager could see.
-7. Rep-level Slack routing is off. One combined test digest may go to Slack DM `D01DFNA0GBH`, and only after `node scripts/check-search-log.mjs --run-id {run-id}` prints PASS. Do not invent other destinations. Suppressed and silent accounts stay out of that digest.
+7. Rep-level Slack routing is off. One combined digest for the whole portfolio may go to Max, Slack DM `D01DFNA0GBH`, and only after `node scripts/check-search-log.mjs --run-id {run-id}` prints PASS. Do not invent other destinations. Suppressed and silent accounts stay out of that digest.
 8. If research cannot be finished, stop with a checkpoint that names the unfinished accounts. Do not mark those accounts silent.

@@ -2,7 +2,14 @@
 
 Replace the saved weekly prompt with the block below. This file does not change an automation that is already saved in the Cursor UI. The cloud run only sees files that are committed and pushed on the branch the automation checks out.
 
-Rep-level Slack routing is not part of this prompt. One combined digest still goes to the existing destination.
+Rep-level Slack routing is not part of this prompt. One combined digest for the whole portfolio goes to Max.
+
+Automation settings that the prompt cannot set:
+
+- Repository `AIHR1/gae-accounts-signal`, branch `main`. Scheduled triggers clone no repository unless one is selected.
+- Schedule: Monday morning, Europe/Amsterdam, so the window is the Monday–Sunday week that just ended.
+- Slack MCP enabled as a tool, connected as the account that owns the DM with Max.
+- No pull request. The Slack message is the delivery.
 
 ---
 
@@ -16,7 +23,7 @@ You are running the **weekly Account Signals** digest for **gae-accounts-signal*
    The portfolio source of truth is **`account-context/GAE_Top_Accounts_Context_23september.xlsx`**.
    Do not use **`v1-archived/`**. Do not run six signal lanes. There is no Monitor category and no minimum number of insights.
 
-2. Set the review window to the Monday–Sunday week that has just ended in Europe/Amsterdam. Name the **`run-id`** from those dates, for example `2026-09-15-to-2026-09-21`. Write the working files under **`runs/{run-id}/`** only.
+2. Set the review window to the Monday–Sunday week that has just ended in Europe/Amsterdam. Name the **`run-id`** from those dates, for example `2026-09-21-to-2026-09-27`. Write the working files under **`runs/{run-id}/`** only.
    Do not look in git for an earlier run. **`runs/`** is gitignored, so a fresh checkout will not contain one. Do not lengthen the window to produce more insights, and do not backfill older weeks.
    A development counts only if it was newly published or materially updated inside the window. Open the source and record the date you saw. If the date is unclear, do not include it. Older material may explain an in-window change. It does not create a signal by itself.
 
@@ -33,7 +40,7 @@ You are running the **weekly Account Signals** digest for **gae-accounts-signal*
    If it prints **FAIL**, run the searches it names, update the search log, and run the check again. Do this at most twice. If it still fails, send no Slack message, copy the problems into the execution record, and stop with a checkpoint.
    Copy the final **`SEARCH CHECK`** line into the execution record.
 
-7. Only if the search check printed **PASS** and at least one item is included, send **one** combined Slack message with **`slack_send_message`**. Set **`channel_id`** from the Cloud secret **`MAX_SLACK_CHANNEL_ID`**. Do not use Cursor’s built-in Send to Slack action. Do not message Jessica or Filip separately.
+7. Only if the search check printed **PASS** and at least one item is included, send **one** combined Slack message with **`slack_send_message`** and **`channel_id`** `D01DFNA0GBH` (the DM with Max). Do not use Cursor’s built-in Send to Slack action. Do not message Jessica or Filip separately.
    Name the review period, then each included item in plain language: account, owner, what changed, why it matters for this relationship, the hypothesis to test, the suggested move, and the source link. Do not pitch an AIHR product. Split into several messages if the text is too long.
    If nothing is included, send no Slack message. Record that in the execution record.
 
