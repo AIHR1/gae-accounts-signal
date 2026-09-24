@@ -1,8 +1,8 @@
-# Cursor instructions — max-accounts-signals
+# Cursor instructions — gae-accounts-signal
 
 This repository is a markdown vault for SOP-driven account-signal research. There is no application build. Run artifacts live under `runs/{run-id}/`.
 
-When you run inside Cursor, including Cursor Automations, this file is binding together with `sops/`, `.cursor/rules/max-accounts-signals-execution.mdc`, and `.cursor/agents/`.
+When you run inside Cursor, including Cursor Automations, this file is binding together with `sops/`, `.cursor/rules/gae-accounts-signal-execution.mdc`, and `.cursor/agents/`.
 
 ## Active procedure — V2
 
@@ -31,7 +31,7 @@ Until that phase is explicitly turned on:
 - Send at most one combined digest to the existing destination, Slack DM `D01DFNA0GBH` (`MAX_SLACK_CHANNEL_ID` in `.cursor/environment.json`).
 - Do not send separate digests to Jessica or Filip.
 - Do not send an empty “nothing this week” message.
-- Do not treat a scheduled automation that still contains the old six-signal prompt as the active procedure. That prompt file, `.cursor/automation-weekly-digest-prompt.md`, is on hold.
+- The paste-ready weekly prompt is `.cursor/automation-weekly-digest-prompt.md`. It still sends one combined digest. An automation already saved in the Cursor UI does not change until that prompt is pasted there.
 
 The 15–21 September 2026 run is a manual test of the research logic, not the cutover to unattended rep routing.
 
@@ -45,7 +45,7 @@ If Slack MCP is unavailable and only a webhook exists, `scripts/post-digest-slac
 
 ## Git
 
-Do not commit or open a pull request unless the user asks. If a later automation is told to open a PR, commit only that run’s `runs/{run-id}/` files plus intentional procedure updates.
+`runs/` is gitignored. Do not commit run artifacts, and do not open a pull request to deliver a digest. Slack is the delivery. Do not commit other files unless the user asks.
 
 ## Environment
 

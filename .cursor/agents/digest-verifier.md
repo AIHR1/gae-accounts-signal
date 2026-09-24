@@ -1,5 +1,5 @@
 ---
-name: max-digest-verifier
+name: digest-verifier
 description: Retired V1 completeness checker for the six-signal matrix. Do not use it to judge a V2 run.
 model: fast
 readonly: true

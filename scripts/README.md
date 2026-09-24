@@ -11,7 +11,7 @@ Use this webhook helper only when:
 
 **Setup:** Create an Incoming Webhook in Slack for the target channel, then add `SLACK_WEBHOOK_URL` under [Cloud Agents secrets](https://cursor.com/dashboard/cloud-agents) (or export it locally).
 
-**Run from repo root** (`max-accounts-signals/`):
+**Run from repo root** (`gae-accounts-signal/`):
 
 ```bash
 export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..."

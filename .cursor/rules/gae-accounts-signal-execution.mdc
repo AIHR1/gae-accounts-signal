@@ -1,10 +1,10 @@
 ---
-description: Run max-accounts-signals on the V2 change-detection workflow. The archived six-signal SOPs are not active decision logic.
+description: Run gae-accounts-signal on the V2 change-detection workflow. The archived six-signal SOPs are not active decision logic.
 globs:
   - "**/*.md"
 ---
 
-# max-accounts-signals — V2 execution
+# gae-accounts-signal — V2 execution
 
 When the user asks for an account-signals run, digest, or SOP execution in this folder:
 

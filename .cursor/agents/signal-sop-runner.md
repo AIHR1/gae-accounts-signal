@@ -1,5 +1,5 @@
 ---
-name: max-signal-sop-runner
+name: signal-sop-runner
 description: Retired V1 single-signal runner. Do not use. V2 does not have six signal lanes.
 model: inherit
 readonly: false

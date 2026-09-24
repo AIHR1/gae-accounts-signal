@@ -1,5 +1,5 @@
 ---
-name: max-digest-orchestrator
+name: digest-orchestrator
 description: Retired V1 six-signal orchestrator. Do not use. Active procedure is sops/sop-master-digest-v2.md.
 model: inherit
 readonly: false
@@ -39,7 +39,7 @@ When you **speak to the human** in chat—status updates, summaries, errors, che
 
 ## What you do **not** do alone
 
-- **Per-signal discovery** for full row coverage: delegate **`max-signal-sop-runner`** (**Task** tool or equivalent) **once per batch** (`S{N}-B{MM}`), with explicit account row list, signal number, and **the full target path** `runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md` so the runner **writes that file**. Do **not** silently substitute one giant runner call for all rows if that violates batch sizing in **`sops/sop-master-digest.md`** §7.3 and **`.cursor/rules/max-accounts-signals-execution.mdc`**.
+- **Per-signal discovery** for full row coverage: delegate **`signal-sop-runner`** (**Task** tool or equivalent) **once per batch** (`S{N}-B{MM}`), with explicit account row list, signal number, and **the full target path** `runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md` so the runner **writes that file**. Do **not** silently substitute one giant runner call for all rows if that violates batch sizing in **`sops/sop-master-digest.md`** §7.3 and **`.cursor/rules/gae-accounts-signal-execution.mdc`**.
 
 ## Anti-placeholder gate (before merge — non-negotiable)
 
@@ -57,14 +57,14 @@ Work from **`sops/sop-master-digest.md` §7.3** (and **§7.4** when **`AGENTS.md
 
 1. **Create** `runs/{run-id}/`; copy **`templates/run-manifest-template.md`** → **`runs/{run-id}/run-manifest-{run-id}.md`**; set header (review period, run id).
 2. **Plan batches** for signals 1–6; assign unique **`S{N}-B{MM}`**; record plan in manifest **Batch coverage** as files land.
-3. **Run signal batches** via **`max-signal-sop-runner`**. Each invocation receives the **exact** lane log path; the runner **writes** that file (or returns full markdown for you to write **verbatim**). After **each** batch, **open the file** and confirm the **Anti-placeholder gate** above **before** delegating the next batch or merging.
+3. **Run signal batches** via **`signal-sop-runner`**. Each invocation receives the **exact** lane log path; the runner **writes** that file (or returns full markdown for you to write **verbatim**). After **each** batch, **open the file** and confirm the **Anti-placeholder gate** above **before** delegating the next batch or merging.
 4. **Merge** all Part A′ into **`runs/{run-id}/master-digest-{run-id}.md`** (Part A structure per master §8); dedupe per master §4 — **only after** step 3 passes the gate for **all** batches. Before merging, reject any Part A′ entry that does not show the master §4.1 commercial gate fields and a passing score.
 5. **§7.1c cross-signal harvest:** Scan **every** batch Part L for **`Cross-signal:`** / **Cross-signal hint**; verify each hinted URL under the **target** child SOP §8.1 **and master §4.1**; append Part A + **RF-CROSS-SIGNAL-ROUTE** or **RF-CROSS-SIGNAL-SOP1** per master §7.1c / §7.1b only if the candidate passes both.
 6. **§7.2 trade media sweep** (orchestrator): fill manifest audit table; verify candidates against the relevant child SOP and master §4.1; update Part A / Part B; **re-run §7.1c** for sweep-related cross-signal cases per master.
 7. **Merge / extend Part B** with batch and sweep flags.
 8. **Write** **`runs/{run-id}/master-digest-log-{run-id}.md`** index listing **every** batch file path in that folder + sweep summary pointer.
 9. **Fill run manifest matrix last** (Attempted / Waiver only per evidence in batch logs).
-10. **Invoke `max-digest-verifier`** on the full **`runs/{run-id}/`** bundle; address **FAIL** before claiming complete.
+10. **Invoke `digest-verifier`** on the full **`runs/{run-id}/`** bundle; address **FAIL** before claiming complete.
 11. If this run is governed by **`AGENTS.md`** (Cursor Cloud / automation): notify Max per **`sops/sop-master-digest.md` §7.4** and **`AGENTS.md`** — **`slack_send_message`** with **`channel_id` `D01DFNA0GBH`** after a verifier outcome you can report.
 
 ## If you cannot finish

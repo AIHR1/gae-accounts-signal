@@ -10,7 +10,7 @@
 
 ## Part A′ — Verified entries (this signal × this batch only)
 
-_Filled by **`max-signal-sop-runner`** (writes this file) or pasted verbatim by the orchestrator if the runner is text-only._
+_Filled by **`signal-sop-runner`** (writes this file) or pasted verbatim by the orchestrator if the runner is text-only._
 
 ## Part L — Execution log
 
@@ -20,7 +20,7 @@ _Filled by **`max-signal-sop-runner`** (writes this file) or pasted verbatim by 
 | ----------- | -------------- | ---------------------- | ------------ | ------- | ------------------------------ | ----------------- | ----- |
 | | | | | | | | |
 
-**Cross-signal hint:** When this lane **excluded** the URL but it may fit **another** signal (1–6), set e.g. `S3`, `S1`, or `S4, S6?`. Leave blank if no alternate. Sub-agent spec: `.cursor/agents/max-signal-sop-runner.md` job item 9; orchestrator: `sops/sop-master-digest.md` Section 7.1c.
+**Cross-signal hint:** When this lane **excluded** the URL but it may fit **another** signal (1–6), set e.g. `S3`, `S1`, or `S4, S6?`. Leave blank if no alternate. Sub-agent spec: `.cursor/agents/signal-sop-runner.md` job item 9; orchestrator: `sops/sop-master-digest.md` Section 7.1c.
 
 **Commercial gate score / reason:** For included candidates, record the 1–5 scoring breakdown from `sops/sop-master-digest.md` Section 4.1. For excluded candidates, state the gate failure (e.g. `excluded: strategy noise, no workforce implication`, `excluded: 14/25`, `excluded: generic IT hiring`, `excluded: boilerplate risk disclosure`).
 

@@ -47,7 +47,7 @@ Map each **batch id** to the account rows it covers **for that signal**. Update 
 
 ---
 
-When the matrix is full and drafts are merged, run **`/max-digest-verifier`** (or equivalent) before closing the run.
+When the matrix is full and drafts are merged, run **`/digest-verifier`** (or equivalent) before closing the run.
 
 ## See also
 
