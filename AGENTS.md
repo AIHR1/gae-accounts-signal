@@ -30,6 +30,7 @@ Until that phase is explicitly turned on:
 - Research the full workbook portfolio.
 - Write one internal run record and one combined digest.
 - Put `Rep's Name` on each included item so ownership is visible.
+- Log every search in `runs/{run-id}/search-log-{run-id}.json` and run `node scripts/check-search-log.mjs --run-id {run-id}` (see `scripts/README.md`). No Slack message unless it prints PASS.
 - Send at most one combined digest to the existing destination, Slack DM `D01DFNA0GBH` (`MAX_SLACK_CHANNEL_ID` in `.cursor/environment.json`).
 - Do not send separate digests to Jessica or Filip.
 - Do not send an empty “nothing this week” message.

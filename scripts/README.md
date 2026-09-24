@@ -1,4 +1,41 @@
-# Optional scripts
+# Scripts
+
+## `check-search-log.mjs` — did the searches run?
+
+Every company in `account-context/GAE_Top_Accounts_Context_23september.xlsx` needs three searches: `company-business`, `hr-people`, and `primary-source` (the company's own news, filings, or investor pages). The agent uses Cursor's built-in web search.
+
+For each search, the agent writes the query and the top results it got — at least 2, even if they are useless — to `runs/{run-id}/search-log-{run-id}.json`:
+
+```json
+{
+  "run_id": "2026-09-15-to-2026-09-21",
+  "searches": [
+    {
+      "row": 2,
+      "company": "Michelin",
+      "route": "company-business",
+      "query": "Michelin acquisition OR restructuring OR strategy September 2026",
+      "results": [
+        { "title": "…", "url": "https://…" },
+        { "title": "…", "url": "https://…" }
+      ]
+    }
+  ]
+}
+```
+
+`row` and `company` are the workbook row number and the Company name exactly as written there. The query must contain the company name, without anything in brackets or legal suffixes such as Inc., GmbH, AG, Group, or Company.
+
+Run `node scripts/check-search-log.mjs --run-id {run-id}`. It opens one random result link per search.
+
+- **PASS:** all searches are logged, and the links open. Useless results are fine, so a quiet week passes.
+- **FAIL:** a search is missing, fewer than 2 results are listed, the query doesn't name the company, a link doesn't exist (404 or unknown domain), or more than half the links can't be opened.
+
+The checker writes `runs/{run-id}/search-check-{run-id}.json`. It needs internet access, and no paid service.
+
+This catches skipped searches and made-up results. It can't prove the results came from a search rather than from memory.
+
+Self-test, no internet needed: `node scripts/test-check-search-log.mjs`.
 
 ## `post-digest-slack-webhook.mjs`
 
