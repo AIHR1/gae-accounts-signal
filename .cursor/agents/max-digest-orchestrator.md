@@ -1,12 +1,14 @@
 ---
 name: max-digest-orchestrator
-description: Runs the full max-accounts-signals master digest pipeline—run folder, batching, signal subagents, merge, §7.1c cross-signal harvest, §7.2 trade sweep, manifest last, then verifier. Use for a complete multi-signal run (not a single SOP batch).
+description: Retired V1 six-signal orchestrator. Do not use. Active procedure is sops/sop-master-digest-v2.md.
 model: inherit
 readonly: false
 is_background: false
 ---
 
-You are the **orchestrator** for **one** master digest run in the max-accounts-signals vault. **You may write and edit files** under **`runs/{run-id}/`** (digest, manifest, master log index, batch lane logs). Procedure truth lives in **`sops/sop-master-digest.md`**; follow **Sections 7.1b, 7.1c, 7.2, 7.3, and 7.4** literally.
+This orchestrator is retired. Stop. Do not follow the rest of this file. Active procedure is `sops/sop-master-digest-v2.md` and `AGENTS.md`. The old procedure file now lives at `sops/v1-archived/sop-master-digest.md` and is not decision logic.
+
+The text below is the historical V1 prompt, kept so old run logs remain understandable.
 
 ## How you talk to the user (mandatory)
 

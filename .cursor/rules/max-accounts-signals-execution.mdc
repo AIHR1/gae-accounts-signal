@@ -1,29 +1,18 @@
 ---
-description: Enforce complete, auditable execution of max-accounts-signals SOP digests (no silent waivers).
+description: Run max-accounts-signals on the V2 change-detection workflow. The archived six-signal SOPs are not active decision logic.
 globs:
   - "**/*.md"
 ---
 
-# max-accounts-signals — execution discipline
+# max-accounts-signals — V2 execution
 
-When the user asks for a **master digest run**, **full-month digest**, or **execute SOP** for accounts in this folder:
+When the user asks for an account-signals run, digest, or SOP execution in this folder:
 
-0. For a **full** master run (all six signals, full account table), prefer running the **`max-digest-orchestrator`** agent (`.cursor/agents/max-digest-orchestrator.md`) so merge order, **§7.1c**, and **§7.2** stay in one accountable role. Single-signal or partial batches may still use **`max-signal-sop-runner`** only.
-
-1. **Do not** record **RF-WAIVER** for skipped discovery unless the **user explicitly approved** that scope cut in this conversation. **Do not** use “RF-WAIVER” inside a signal subagent to mean “I ran out of time”—that is **non-compliant** unless the user approved it. If blocked by limits, stop with a **checkpoint**: name unfinished **batch ids** and rows, leave manifest cells **—**, and do not imply a complete run.
-
-2. **Batch by row slice within each signal.** Delegate with `.cursor/agents/max-signal-sop-runner.md` using **explicit batch ids** (`S{N}-B{MM}`) and **8–15 account rows per invocation** (adjust if requester specifies). Cover **all rows** for that signal across batches before marking any column **Attempted**. You may run **multiple signals** in parallel and **multiple batches** of the same signal in parallel **only if** batch ids and row lists do not overlap.
-
-3. **Run folder:** Create **`runs/{run-id}/`** and keep **all** run outputs there: `master-digest-{run-id}.md`, `master-digest-log-{run-id}.md`, `run-manifest-{run-id}.md`, and every **`master-digest-log-{run-id}-s{N}-b{MM}.md`**. Do not write new master digests or manifests to the vault root.
-
-4. **Persist every batch to disk** under **`runs/{run-id}/`**. Prefer **`max-signal-sop-runner`** **writing** `runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md` directly (parent passes the full path in the Task prompt). The orchestrator **verifies** each file after each batch: Part L must contain **row-specific** queries and outcomes—**not** repeated template phrases (e.g. “Multiple full-query strings executed per subagent…”) across rows. If the runner cannot write files, the orchestrator **pastes the runner’s full markdown verbatim** into that path before continuing. The **run manifest** matrix is filled **only** from those files (see `templates/run-manifest-template.md`).
-
-5. Follow **`sops/sop-master-digest.md` §7.1–7.4**: full row × signal matrix intent, **orchestrator merge order**, **§7.1c cross-signal harvest** (scan batch Part L **`Cross-signal:`** hints; append Part A + **RF-CROSS-SIGNAL-ROUTE** / **RF-CROSS-SIGNAL-SOP1** after verification), plus the **HR / HR-tech trade media sweep** once per period with the **expanded manifest audit table** (candidate URLs, outcomes), and **§7.4** Slack handoff to Max when **`AGENTS.md`** applies. Sweep skip = **RF-WAIVER** only if the **user** agreed.
-
-6. For rows with **non-English HQs** (e.g. French, German), apply **`sops/sop-1-chro-statement.md` §7.1a** for **every** applicable signal type, not only CHRO. Batch logs must contain **ISO 639-1 + full query string** for each mandatory local-language attempt.
-
-7. Before claiming the run is **complete**, invoke the **`max-digest-verifier`** subagent (or perform the same checklist) against **`runs/{run-id}/run-manifest-*.md`**, digest, master index, **and** all batch lane logs in that folder: every row × six signals must show **Attempted** or a **user-approved** waiver code.
-
-8. **Writers:** **`max-signal-sop-runner`** writes **its own** lane log file (one path per invocation). The **orchestrator** is the single writer for **digest**, **master log index**, and **manifest**; it may create or overwrite lane files only when pasting a text-only runner return **verbatim**. **Procedure SOPs** live in **`sops/`**; do not move them into run folders.
-
-9. **Placeholder lane logs = invalid run.** Saving `templates/batch-lane-log-template.md` with filler rows, or identical generic Part L cells for every account, is **non-compliant**. Do not mark manifest cells **Attempted** until the corresponding lane file passes the orchestrator **Anti-placeholder gate** (see `.cursor/agents/max-digest-orchestrator.md`).
+1. Follow `sops/sop-master-digest-v2.md` and the three stage SOPs it names. Do not follow `sops/v1-archived/` or `accounts-in-scope.md`.
+2. Load every populated row from `account-context/GAE_Top_Accounts_Context_23september.xlsx` (or the derived snapshot only if it still matches that workbook). Reason on filled Q2 values as breadth of AIHR reach within HR. See `account-context/README.md`.
+3. Use one continuous review window. Do not lengthen it to fill a quiet digest. Do not backfill months of missed weeks unless the user asks.
+4. Write all outputs under `runs/{run-id}/`. Include the queries actually run, candidates, early enrichment suppresses, final Include/Suppress decisions, and the account-context fields used for each included or suppressed candidate.
+5. Hiring volume, a bare leadership appointment, an HR-system go-live, awards, and generic leadership commentary are not standalone signals.
+6. Separate fact from hypothesis in anything an Account Manager could see.
+7. Rep-level Slack routing is off. One combined test digest may go to Slack DM `D01DFNA0GBH`. Do not invent other destinations. Suppressed and silent accounts stay out of that digest.
+8. If research cannot be finished, stop with a checkpoint that names the unfinished accounts. Do not mark those accounts silent.

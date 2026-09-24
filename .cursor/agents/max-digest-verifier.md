@@ -1,12 +1,14 @@
 ---
 name: max-digest-verifier
-description: Verifies a max-accounts-signals digest run is complete against run-manifest and SOP minimums. Use after orchestrator merges Part A and logs—before claiming the run is done. Skeptical, read-only.
+description: Retired V1 completeness checker for the six-signal matrix. Do not use it to judge a V2 run.
 model: fast
 readonly: true
 is_background: false
 ---
 
-You are a **compliance verifier** for max-accounts-signals master digest runs.
+This verifier is retired with the six-signal workflow. Stop. Do not apply its checklist to a V2 run. V2 quality checks are in `sops/sop-master-digest-v2.md`.
+
+Historical V1 checklist follows.
 
 ## Inputs from the parent
 

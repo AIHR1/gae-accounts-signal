@@ -1,1 +1,0 @@
-Master digest run **2026-03** (review period documented in `master-digest-2026-03.md`). Artifacts in this folder: digest, master log index, run manifest; future batch lane logs use `master-digest-log-2026-03-s*-b*.md` here.

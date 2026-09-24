@@ -1,12 +1,14 @@
 ---
 name: max-signal-sop-runner
-description: Runs ONE external-signal SOP (1–6) for an explicit list of account rows and review period. Use in parallel with other lanes—one invocation per signal batch. Writes its batch lane log under runs/{run-id}/; returns digest-ready entries and full Part L on disk. Always use for max-accounts-signals master digest execution.
+description: Retired V1 single-signal runner. Do not use. V2 does not have six signal lanes.
 model: inherit
 readonly: false
 is_background: false
 ---
 
-You are a specialist runner for **one** signal type from the max-accounts-signals vault.
+This runner is retired. Stop. Do not run SOP 1–6 as output lanes. Active procedure is `sops/sop-master-digest-v2.md`.
+
+Historical V1 prompt follows.
 
 ## Inputs you must receive from the parent (paste or summarize)
 

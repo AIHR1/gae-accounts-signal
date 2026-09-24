@@ -1,45 +1,52 @@
-# Cursor Cloud specific instructions
+# Cursor instructions — max-accounts-signals
 
-This repository is an Obsidian-friendly **markdown vault** for **max-accounts-signals**: SOP-driven research digests for a fixed account list. There is no application build step; artifacts are files under `runs/{run-id}/`.
+This repository is a markdown vault for SOP-driven account-signal research. There is no application build. Run artifacts live under `runs/{run-id}/`.
 
-When you run **inside Cursor Cloud** (including **Cursor Automations**), treat this file as binding in addition to `sops/`, `.cursor/rules/max-accounts-signals-execution.mdc`, and the agent prompts under `.cursor/agents/`.
+When you run inside Cursor, including Cursor Automations, this file is binding together with `sops/`, `.cursor/rules/max-accounts-signals-execution.mdc`, and `.cursor/agents/`.
 
-## Weekly automation (master digest)
+## Active procedure — V2
 
-Follow the **mandatory checklist** and tone rules in `.cursor/agents/max-digest-orchestrator.md`. Procedure truth is `sops/sop-master-digest.md` (merge order, cross-signal harvest, trade sweep, manifest last). Account rows live in `accounts-in-scope.md`.
+Research logic is the four V2 SOPs:
 
-**Run id:** Choose a single `run-id` for this execution (for example `2026-05` for a calendar month, or `2026-W18` for an ISO week). Use the **same** stem in every filename under `runs/{run-id}/`, per `runs/README.md`.
+1. `sops/sop-change-detection-v2.md`
+2. `sops/sop-evidence-enrichment-v2.md`
+3. `sops/sop-account-reasoning-relevance-v2.md`
+4. `sops/sop-master-digest-v2.md`
 
-**Parallel batches:** If your runtime cannot spawn separate subagents the way the desktop orchestrator does with the Task tool, still complete **every** row for **every** signal by running **sequential** batch slices (roughly 8–15 account rows per batch). Do not skip rows to save time.
+Portfolio source of truth: `account-context/GAE_Top_Accounts_Context_23september.xlsx`.
 
-**Compliance:** Do not mark the manifest **Attempted** until each batch lane log passes the anti-placeholder rules in the orchestrator file. Before claiming the run is complete, apply `.cursor/agents/max-digest-verifier.md` (or perform the same checks yourself) against the whole `runs/{run-id}/` folder.
+`accounts-in-scope.md` and `sops/v1-archived/` are retired. Do not use the six signal categories as output lanes, and do not use the old account table for ownership.
 
-## Git / pull request
+The chain is Change Detection → Evidence Enrichment → Account Relevance → Include/Suppress. A quiet week is a valid result. There is no Monitor category and no minimum signal count.
 
-When **Open pull request** is enabled on the automation, create a **branch** (for example `automation/digest-{run-id}`), commit **only** the new or updated files for this run under `runs/{run-id}/` plus any intentional template or doc updates, and open a PR with a clear title and description. The PR description should name the review period, `run-id`, and the verifier outcome in plain language.
+## Test hold — read this before any Slack send
 
-If the automation is configured to push without a PR, still make a **single coherent commit** with the same scope discipline.
+Rep-level Slack routing is **not** active.
 
-## Slack — notify Max (Slack MCP, not Cursor’s Send to Slack)
+Until that phase is explicitly turned on:
 
-Max is **not** a Cursor user, so the digest must reach him in Slack via your workspace’s **Slack MCP** (`slack_send_message`, `slack_search_channels`, etc.). **Do not** use Cursor Automations’ built-in **Send to Slack** action for this notification.
+- Research the full workbook portfolio.
+- Write one internal run record and one combined digest.
+- Put `Rep's Name` on each included item so ownership is visible.
+- Send at most one combined digest to the existing destination, Slack DM `D01DFNA0GBH` (`MAX_SLACK_CHANNEL_ID` in `.cursor/environment.json`).
+- Do not send separate digests to Jessica or Filip.
+- Do not send an empty “nothing this week” message.
+- Do not treat a scheduled automation that still contains the old six-signal prompt as the active procedure. That prompt file, `.cursor/automation-weekly-digest-prompt.md`, is on hold.
 
-**Automation wiring:** On the scheduled automation, enable **MCP** and attach the **Slack** MCP server your team uses for cloud runs ([MCP on cloud agents](https://cursor.com/docs/cloud-agent/capabilities)). If the automation is **team-owned**, complete Slack / MCP OAuth under the **automations service account** so posting to the target channel is allowed—personal OAuth on someone else’s account will break when the automation runs unattended ([permissions / billing](https://cursor.com/docs/cloud-agent/automations)). Prefer an **HTTP** Slack MCP configuration when your setup allows it; otherwise use the supported team configuration from [Cloud Agents / MCP settings](https://cursor.com/agents).
+The 15–21 September 2026 run is a manual test of the research logic, not the cutover to unattended rep routing.
 
-**Channel target:** Post to the **Slack** conversation Max uses for digests. The **`channel_id`** is documented in **`sops/sop-master-digest.md` section 7.4** (`D01DFNA0GBH` — a DM id; public channels often use `C…`). The same value is mirrored in **`.cursor/environment.json`** as **`env.MAX_SLACK_CHANNEL_ID`** so Cloud agents load it into the VM ([Cloud agent setup](https://cursor.com/docs/cloud-agent/setup)). It is **not** a secret. Before sending, you may confirm with `printenv MAX_SLACK_CHANNEL_ID` and pass it as **`channel_id`** to **`slack_send_message`**. If the variable is unset in your runtime, use the id from the SOP or **`slack_search_channels`** to confirm the destination before posting.
+## Slack
 
-**Message content** — write for a busy reader: short paragraphs, plain English, no internal gate jargon without explanation. Include:
+Max is not a Cursor user. If a digest is sent, use Slack MCP `slack_send_message`. Do not use Cursor Automations’ built-in Send to Slack action.
 
-1. **Review period** and **`run-id`**.
-2. **Top 5–10** Part A headlines (account + what changed + why it matters), each with its primary link from the digest.
-3. **Red flags / Part B** themes in one short paragraph if any.
-4. **Verifier** outcome (pass / pass with notes / fail) and what to do next if not a clean pass.
-5. **Links** to `runs/{run-id}/master-digest-{run-id}.md`, `runs/{run-id}/run-manifest-{run-id}.md`, and the **GitHub PR** URL if one exists.
+Channel id: `D01DFNA0GBH`. It is not a secret. Do not put tokens or webhook URLs in committed files.
 
-The `slack_send_message` tool applies a **length limit** (on the order of thousands of characters). If the summary is too long, send **multiple** sequential messages to the same channel or trim to highlights and rely on the GitHub links for detail. You may write a scratch file such as `runs/{run-id}/slack-summary-{run-id}.md` for your own editing; **do not** put tokens or webhook URLs in committed files.
+If Slack MCP is unavailable and only a webhook exists, `scripts/post-digest-slack-webhook.mjs` remains a fallback for that same fixed destination. See `scripts/README.md`.
 
-**Fallback:** If Slack MCP is unavailable and only a webhook exists, `SLACK_WEBHOOK_URL` plus `node scripts/post-digest-slack-webhook.mjs` stays available for a fixed channel—see `scripts/README.md`.
+## Git
+
+Do not commit or open a pull request unless the user asks. If a later automation is told to open a PR, commit only that run’s `runs/{run-id}/` files plus intentional procedure updates.
 
 ## Environment
 
-This repo has **no** npm dependencies for the digest itself. **`.cursor/environment.json`** sets a no-op **`install`** command and **`env.MAX_SLACK_CHANNEL_ID`** for Slack MCP posts. If you add tooling later, extend that file’s `install` command to match.
+No npm install is required for the digest. `.cursor/environment.json` sets a no-op install and `MAX_SLACK_CHANNEL_ID`.

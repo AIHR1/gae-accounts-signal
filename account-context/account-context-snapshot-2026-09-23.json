@@ -1,0 +1,296 @@
+{
+  "source_workbook": "account-context/GAE_Top_Accounts_Context_23september.xlsx",
+  "sheet": "Account Context",
+  "extracted_on": "2026-09-24",
+  "q2_note": "Column header is 'Q2 — Organizational scope' and the hidden dropdown lists geographic scope. Filled cells contain the relevance SOP's breadth-of-AIHR-reach values. This snapshot keeps the filled value and tells the test to reason on it as breadth of AIHR reach within HR.",
+  "accounts": [
+    {
+      "company_name": "Michelin",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Oscar Health",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Rapid7",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Phoenix Contact GmbH & Co. KG",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "General Motors Financial Company Inc.",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Howmet Aerospace Inc",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Almarai",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "African Development Bank Group",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Children’s Health",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Nestlé Dominicana",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Schneider Electric",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Metro AG",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Abdul Latif Jameel Company",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Orange Business",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Red Bull GmbH",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Absa Group",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Sony Music Publishing UK",
+      "rep_name": "Max",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Nedbank",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Enterprise HR capability transformation",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Standard Bank",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Enterprise HR capability transformation",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "Mitsubishi Chemical",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO"
+    },
+    {
+      "company_name": "Heineken",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Deloitte",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "International Flavors & Fragrances Inc.",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Multiple HR functions",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -1"
+    },
+    {
+      "company_name": "OPENLANE",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Enterprise HR capability transformation",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO"
+    },
+    {
+      "company_name": "Coca Cola (bottling and inc)",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "Mitsubishi Motors",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "Mitsubishi Heavy Industries",
+      "rep_name": "Jessica",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "NATO International Staff",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Most / all of the HR organization",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "ADEO",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Finning",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "Essendi",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Broader HR capability building",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "University of Massachusetts",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Specific HR function",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "AIMS International",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Arcosa",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    },
+    {
+      "company_name": "Constellation Brands",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Ongoing team upskilling",
+      "q2_filled_value": "Small group within HR",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -3 or below"
+    },
+    {
+      "company_name": "Pluxee",
+      "rep_name": "Filip",
+      "q1_primary_use_case": "Specific skill gap",
+      "q2_filled_value": "Unclear",
+      "q2_interpret_as": "breadth_of_aihr_reach_within_hr",
+      "q3_highest_meaningful_hr_access": "CHRO -2"
+    }
+  ]
+}
