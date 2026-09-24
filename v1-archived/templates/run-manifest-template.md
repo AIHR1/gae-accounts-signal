@@ -26,7 +26,7 @@ Map each **batch id** to the account rows it covers **for that signal**. Update 
 
 | Account (exact table row) | [chro-statement] | [leadership-appointment] | [transformation-initiative] | [hiring-trends] | [skills-gaps] | [hr-technology] |
 | ------------------------- | ---------------- | -------------------------- | --------------------------- | --------------- | ------------- | --------------- |
-| _paste rows from accounts-in-scope.md_ | | | | | | |
+| _paste rows from v1-archived/accounts-in-scope.md_ | | | | | | |
 
 ## Trade media sweep (`sop-master-digest` §7.2) — audit table
 

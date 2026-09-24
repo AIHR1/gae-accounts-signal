@@ -2,7 +2,7 @@
 
 This repository is a markdown vault for SOP-driven account-signal research. There is no application build. Run artifacts live under `runs/{run-id}/`.
 
-When you run inside Cursor, including Cursor Automations, this file is binding together with `sops/`, `.cursor/rules/gae-accounts-signal-execution.mdc`, and `.cursor/agents/`.
+When you run inside Cursor, including Cursor Automations, this file is binding together with `sops/` and `.cursor/rules/gae-accounts-signal-execution.mdc`.
 
 ## Active procedure — V2
 
@@ -15,7 +15,7 @@ Research logic is the four V2 SOPs:
 
 Portfolio source of truth: `account-context/GAE_Top_Accounts_Context_23september.xlsx`.
 
-`accounts-in-scope.md` and `sops/v1-archived/` are retired. Do not use the six signal categories as output lanes, and do not use the old account table for ownership.
+`v1-archived/` is retired. It holds the six-signal SOPs, `accounts-in-scope.md`, the V1 agents, and the V1 templates. Do not use the six signal categories as output lanes, and do not use the old account table for ownership.
 
 The chain is Change Detection → Evidence Enrichment → Account Relevance → Include/Suppress. A quiet week is a valid result. There is no Monitor category and no minimum signal count.
 

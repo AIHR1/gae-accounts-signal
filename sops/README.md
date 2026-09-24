@@ -9,8 +9,8 @@ Active decision logic is the V2 workflow:
 
 `cursor-implementation-spec.md` is the orchestration spec. `v2-package-readme.md` is the package note that arrived with the 24 September 2026 replacement.
 
-The portfolio source of truth is `account-context/GAE_Top_Accounts_Context_23september.xlsx`, not `accounts-in-scope.md`.
+The portfolio source of truth is `account-context/GAE_Top_Accounts_Context_23september.xlsx`.
 
-`v1-archived/` holds the previous master SOP and the six signal-category SOPs. Those files are historical. Do not use them to decide what reaches an Account Manager.
+Retired V1 material is in `v1-archived/` at the repository root: the old SOPs, account table, agents, and templates. Do not use that folder to decide what reaches an Account Manager.
 
 Each execution’s digest and logs live under `runs/{run-id}/`.

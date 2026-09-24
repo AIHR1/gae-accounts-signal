@@ -20,4 +20,4 @@ The 36 filled Q2 cells do not use those geographic values. They use the reach ca
 
 This test reasons on the filled cell as **breadth of AIHR reach within HR**. That matches the relevance SOP and the actual cell contents. The header and dropdown were not rewritten, because that would change the workbook the sender asked to test.
 
-`accounts-in-scope.md` is the retired V1 account table. It is a different list and must not be used for V2 ownership or relevance.
+`v1-archived/accounts-in-scope.md` is the retired V1 account table. It is a different list and must not be used for V2 ownership or relevance.

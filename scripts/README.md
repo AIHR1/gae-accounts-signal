@@ -2,7 +2,7 @@
 
 ## `post-digest-slack-webhook.mjs`
 
-**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (post via `slack_send_message` using **`channel_id` `D01DFNA0GBH`**, documented in **`sops/sop-master-digest.md` section 7.4**; **`MAX_SLACK_CHANNEL_ID`** in **`.cursor/environment.json`** mirrors the same value). **Do not** rely on Cursor’s built-in **Send to Slack** for that destination.
+**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (post via `slack_send_message` using **`channel_id` `D01DFNA0GBH`**; **`MAX_SLACK_CHANNEL_ID`** in **`.cursor/environment.json`** mirrors the same value). **Do not** rely on Cursor’s built-in **Send to Slack** for that destination.
 
 Use this webhook helper only when:
 

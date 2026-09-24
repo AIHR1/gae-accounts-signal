@@ -8,7 +8,7 @@ globs:
 
 When the user asks for an account-signals run, digest, or SOP execution in this folder:
 
-1. Follow `sops/sop-master-digest-v2.md` and the three stage SOPs it names. Do not follow `sops/v1-archived/` or `accounts-in-scope.md`.
+1. Follow `sops/sop-master-digest-v2.md` and the three stage SOPs it names. Do not follow `v1-archived/`.
 2. Load every populated row from `account-context/GAE_Top_Accounts_Context_23september.xlsx` (or the derived snapshot only if it still matches that workbook). Reason on filled Q2 values as breadth of AIHR reach within HR. See `account-context/README.md`.
 3. Use one continuous review window. Do not lengthen it to fill a quiet digest. Do not backfill months of missed weeks unless the user asks.
 4. Write all outputs under `runs/{run-id}/`. Include the queries actually run, candidates, early enrichment suppresses, final Include/Suppress decisions, and the account-context fields used for each included or suppressed candidate.

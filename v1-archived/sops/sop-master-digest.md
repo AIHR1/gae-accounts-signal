@@ -158,13 +158,13 @@ If the operator **stops before** that matrix is done, the run is **not** fully S
 
 **Orchestrator actions:** Execute Section **7.1c** for every Part L row with **`Cross-signal: S1`** from **`[leadership-appointment]`** batches and for §7.2 manifest rows that match this profile (not an appointment; VP+ / CHRO-tier strategic people commentary). Verify with [[sop-1-chro-statement]] **Section 8.1**; on success append **`[chro-statement]`** to Part A and log **RF-CROSS-SIGNAL-SOP1** (use this code **instead of** **RF-CROSS-SIGNAL-ROUTE** for these cases). **Dedupe** per Section 7.1c—do not duplicate an existing S1 batch line.
 
-**Sub-agent logging:** Signal 2 runners **must** mark **`Cross-signal: S1`** on Part L for these URLs (see `.cursor/agents/signal-sop-runner.md`).
+**Sub-agent logging:** Signal 2 runners **must** mark **`Cross-signal: S1`** on Part L for these URLs (see `v1-archived/agents/signal-sop-runner.md`).
 
 ### 7.1c Cross-signal harvest (all batch lanes → other SOPs)
 
 **Purpose:** Reuse URLs **already fetched** in one signal batch when they **fail that lane’s §5** but **match another** child SOP. Sub-agents must not bury those URLs in a generic “no signal” summary line with no URL list.
 
-**Sub-agent requirement (normative copy in `.cursor/agents/signal-sop-runner.md`):** List **every** candidate URL **opened or fetched** for verification in Part L. When excluded from the batch’s signal, if another signal **S1–S6** **clearly** applies, record **`Cross-signal: S#`** (or multiple, comma-separated) in the batch template **Cross-signal hint** column or equivalent. Suffix **`?`** when plausible but uncertain. **Mandatory** for clear alternate fits; **strongly encouraged** for near-misses.
+**Sub-agent requirement (normative copy in `v1-archived/agents/signal-sop-runner.md`):** List **every** candidate URL **opened or fetched** for verification in Part L. When excluded from the batch’s signal, if another signal **S1–S6** **clearly** applies, record **`Cross-signal: S#`** (or multiple, comma-separated) in the batch template **Cross-signal hint** column or equivalent. Suffix **`?`** when plausible but uncertain. **Mandatory** for clear alternate fits; **strongly encouraged** for near-misses.
 
 **Orchestrator requirement:** Immediately after the initial Part A′ merge (Section 7.3 step 6), and again after the §7.2 sweep when new Part L / manifest rows appear:
 
@@ -189,19 +189,19 @@ If the operator **stops before** that matrix is done, the run is **not** fully S
 
 **Example outlets (non-exhaustive — rotate and refresh):** People Matters; HR Dive; UNLEASH; HR Grapevine; People Management (CIPD); TLNT; Human Resource Executive; HCM Technology Report; Reworked (Workplace); HR Executive; EBN / Employee Benefit News; *optionally* neutral summaries from industry analysts **only** as pointers to issuer or corporate sources.
 
-**Log (manifest + master log):** Every outlet visited, query or browse path, **each candidate article URL**, named in-scope **account row** (if any), verification outcome (**included in Part A** / **excluded** + one-line reason / **paywall**), and **routed signal tag** if applicable. Use the expanded table in `templates/run-manifest-template.md` (Section “Trade media sweep”).
+**Log (manifest + master log):** Every outlet visited, query or browse path, **each candidate article URL**, named in-scope **account row** (if any), verification outcome (**included in Part A** / **excluded** + one-line reason / **paywall**), and **routed signal tag** if applicable. Use the expanded table in `v1-archived/templates/run-manifest-template.md` (Section “Trade media sweep”).
 
 ### 7.3 Orchestrator merge order (mandatory)
 
-**Cursor:** For a full run, you may invoke the agent **`digest-orchestrator`** (`.cursor/agents/digest-orchestrator.md`) so merge, **§7.1c**, **§7.2**, manifest-last, and verifier handoff stay in one role.
+**Cursor:** For a full run, you may invoke the agent **`digest-orchestrator`** (`v1-archived/agents/digest-orchestrator.md`) so merge, **§7.1c**, **§7.2**, manifest-last, and verifier handoff stay in one role.
 
 Execute in this order so the **run manifest** stays auditable and the **verifier** can PASS:
 
 1. **Create the run folder** `runs/{run-id}/` (e.g. `runs/2026-03/`). All artifacts for this execution live **only** here (digest, manifest, master log index, batch lane logs).  
-2. **Copy** `templates/run-manifest-template.md` to **`runs/{run-id}/run-manifest-{run-id}.md`**. Fill header (review period, run id, waivers).  
+2. **Copy** `v1-archived/templates/run-manifest-template.md` to **`runs/{run-id}/run-manifest-{run-id}.md`**. Fill header (review period, run id, waivers).  
 3. **Plan batches:** For each signal 1–6, split [[accounts-in-scope]] into row batches (recommended **8–15 rows** per batch). Assign **`S{N}-B{MM}`** ids (e.g. `S1-B01`, `S1-B02`, …). Record the plan in the manifest **Batch coverage** table as files are created.  
-4. **Run subagents** (`.cursor/agents/signal-sop-runner.md`): one invocation per **batch** (not one invocation per entire signal unless the row count is tiny). Run batches in parallel when safe (**no overlapping rows** in concurrent invocations for the same signal).  
-5. **Batch lane logs (on disk before merge):** Each **`signal-sop-runner`** invocation **writes** **`runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md`** (orchestrator passes the full path in the task). Content must be **verbatim** execution detail: Part A′ + Part L with **row-specific** queries and URLs—**not** repeated template filler (see `.cursor/agents/digest-orchestrator.md` **Anti-placeholder gate**). If the runner cannot write files, the orchestrator **pastes** the runner’s full markdown into that path **before** the next batch or merge. If the subagent emits **CHECKPOINT**, do not mark those rows **Attempted** until a completing batch is written.  
+4. **Run subagents** (`v1-archived/agents/signal-sop-runner.md`): one invocation per **batch** (not one invocation per entire signal unless the row count is tiny). Run batches in parallel when safe (**no overlapping rows** in concurrent invocations for the same signal).  
+5. **Batch lane logs (on disk before merge):** Each **`signal-sop-runner`** invocation **writes** **`runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md`** (orchestrator passes the full path in the task). Content must be **verbatim** execution detail: Part A′ + Part L with **row-specific** queries and URLs—**not** repeated template filler (see `v1-archived/agents/digest-orchestrator.md` **Anti-placeholder gate**). If the runner cannot write files, the orchestrator **pastes** the runner’s full markdown into that path **before** the next batch or merge. If the subagent emits **CHECKPOINT**, do not mark those rows **Attempted** until a completing batch is written.  
 6. **Merge Part A′** from all batch files into **`runs/{run-id}/master-digest-{run-id}.md`** **only after** every planned lane log passes the anti-placeholder check (dedupe per Section 4; note **RF-DEDUPE** / **RF-CLASSIFICATION** in Part B as needed). **Immediately after**, run Section **7.1c** (which covers **7.1b** `[chro-statement]` uplifts and all other **`Cross-signal:`** hints) and **append** any verified entries not already in Part A.  
 7. **Merge Part B** from flags observed across batches (sweep flags added in the next step); include **RF-CROSS-SIGNAL-SOP1** / **RF-CROSS-SIGNAL-ROUTE** from step 6 / 7.1c.  
 8. **Run §7.2 sweep** (orchestrator): visit rotating trade outlets; fill **`runs/{run-id}/run-manifest-{run-id}.md`** audit table with **every** candidate article URL, account row, outcome, and routed tag; update Part B for paywall / RF-CLASSIFICATION from sweep. **Re-run Section 7.1c** for sweep rows that imply a **`Cross-signal:`** or 7.1b-style S1 uplift.  
@@ -316,9 +316,9 @@ The **master index** must contain:
 - §7.2 sweep summary (may duplicate manifest audit table by reference)  
 - **Every Part B flag** duplicated or indexed here with timestamps/tools where relevant  
 
-Each **batch lane log** (from `templates/batch-lane-log-template.md`) holds the **verbatim** Part A′ + Part L for that batch, including **ISO 639-1 + query** lines for §7.1a. Delegated or agent runs **must** produce these files; the index ties them together for auditability.
+Each **batch lane log** (from `v1-archived/templates/batch-lane-log-template.md`) holds the **verbatim** Part A′ + Part L for that batch, including **ISO 639-1 + query** lines for §7.1a. Delegated or agent runs **must** produce these files; the index ties them together for auditability.
 
-**Procedure SOPs** (child signals + this master note) live in **`sops/`**; **accounts** in **`accounts-in-scope.md`** at vault root; **each run** is self-contained under **`runs/{run-id}/`**.
+**Procedure SOPs** (child signals + this master note) and **accounts** live in **`v1-archived/`**, including **`accounts-in-scope.md`**; **each run** is self-contained under **`runs/{run-id}/`**.
 
 ---
 

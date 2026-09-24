@@ -6,7 +6,7 @@ readonly: false
 is_background: false
 ---
 
-This orchestrator is retired. Stop. Do not follow the rest of this file. Active procedure is `sops/sop-master-digest-v2.md` and `AGENTS.md`. The old procedure file now lives at `sops/v1-archived/sop-master-digest.md` and is not decision logic.
+This orchestrator is retired. Stop. Do not follow the rest of this file. Active procedure is `sops/sop-master-digest-v2.md` and `AGENTS.md`. The old procedure file now lives at `v1-archived/sops/sop-master-digest.md` and is not decision logic.
 
 The text below is the historical V1 prompt, kept so old run logs remain understandable.
 
@@ -34,12 +34,12 @@ When you **speak to the human** in chat—status updates, summaries, errors, che
 
 - **`run-id`** (e.g. `2026-04`) — matches digest/manifest filenames.
 - **Review period** (exact dates) unless default in SOP §6.
-- **`accounts-in-scope.md`** path (default: vault root file for this project).
+- **`accounts-in-scope.md`** path (default: `v1-archived/accounts-in-scope.md`).
 - Any **user-approved** waivers (else do **not** use **RF-WAIVER** for skipped steps).
 
 ## What you do **not** do alone
 
-- **Per-signal discovery** for full row coverage: delegate **`signal-sop-runner`** (**Task** tool or equivalent) **once per batch** (`S{N}-B{MM}`), with explicit account row list, signal number, and **the full target path** `runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md` so the runner **writes that file**. Do **not** silently substitute one giant runner call for all rows if that violates batch sizing in **`sops/sop-master-digest.md`** §7.3 and **`.cursor/rules/gae-accounts-signal-execution.mdc`**.
+- **Per-signal discovery** for full row coverage: delegate **`signal-sop-runner`** (**Task** tool or equivalent) **once per batch** (`S{N}-B{MM}`), with explicit account row list, signal number, and **the full target path** `runs/{run-id}/master-digest-log-{run-id}-s{N}-b{MM}.md` so the runner **writes that file**. Do **not** silently substitute one giant runner call for all rows if that violates batch sizing in **`v1-archived/sops/sop-master-digest.md`** §7.3 and **`.cursor/rules/gae-accounts-signal-execution.mdc`**.
 
 ## Anti-placeholder gate (before merge — non-negotiable)
 
@@ -49,13 +49,13 @@ When you **speak to the human** in chat—status updates, summaries, errors, che
 2. **Part L is not boilerplate:** Reject if **≥2** account rows share the **same** Queries / URLs / Outcome cell text and that text matches any **forbidden stub phrase** (case-insensitive substring match): `Multiple full-query`, `per subagent`, `Candidate URLs opened/fetched per lane`, `families 1–7 per \`sops/sop-`, `Outcome per §8.1 (included/excluded + reason)` **as the entire cell** for multiple rows, `Cross-signal hints where applicable` **as the entire** Cross-signal cell for every row.
 3. **No “evidence in orchestrator session”** (or equivalent) as substitute for Part L content in the file.
 
-If a return is text-only because the runner could not write: **you** paste the **verbatim** full markdown into that path **before** starting the next batch or merge. **Never** save the empty `templates/batch-lane-log-template.md` filler rows as the final log.
+If a return is text-only because the runner could not write: **you** paste the **verbatim** full markdown into that path **before** starting the next batch or merge. **Never** save the empty `v1-archived/templates/batch-lane-log-template.md` filler rows as the final log.
 
 ## Mandatory checklist (do not skip or reorder without SOP waiver)
 
-Work from **`sops/sop-master-digest.md` §7.3** (and **§7.4** when **`AGENTS.md`** applies — e.g. Cursor Cloud). In practice:
+Work from **`v1-archived/sops/sop-master-digest.md` §7.3** (and **§7.4** when **`AGENTS.md`** applies — e.g. Cursor Cloud). In practice:
 
-1. **Create** `runs/{run-id}/`; copy **`templates/run-manifest-template.md`** → **`runs/{run-id}/run-manifest-{run-id}.md`**; set header (review period, run id).
+1. **Create** `runs/{run-id}/`; copy **`v1-archived/templates/run-manifest-template.md`** → **`runs/{run-id}/run-manifest-{run-id}.md`**; set header (review period, run id).
 2. **Plan batches** for signals 1–6; assign unique **`S{N}-B{MM}`**; record plan in manifest **Batch coverage** as files land.
 3. **Run signal batches** via **`signal-sop-runner`**. Each invocation receives the **exact** lane log path; the runner **writes** that file (or returns full markdown for you to write **verbatim**). After **each** batch, **open the file** and confirm the **Anti-placeholder gate** above **before** delegating the next batch or merging.
 4. **Merge** all Part A′ into **`runs/{run-id}/master-digest-{run-id}.md`** (Part A structure per master §8); dedupe per master §4 — **only after** step 3 passes the gate for **all** batches. Before merging, reject any Part A′ entry that does not show the master §4.1 commercial gate fields and a passing score.
@@ -65,7 +65,7 @@ Work from **`sops/sop-master-digest.md` §7.3** (and **§7.4** when **`AGENTS.md
 8. **Write** **`runs/{run-id}/master-digest-log-{run-id}.md`** index listing **every** batch file path in that folder + sweep summary pointer.
 9. **Fill run manifest matrix last** (Attempted / Waiver only per evidence in batch logs).
 10. **Invoke `digest-verifier`** on the full **`runs/{run-id}/`** bundle; address **FAIL** before claiming complete.
-11. If this run is governed by **`AGENTS.md`** (Cursor Cloud / automation): notify Max per **`sops/sop-master-digest.md` §7.4** and **`AGENTS.md`** — **`slack_send_message`** with **`channel_id` `D01DFNA0GBH`** after a verifier outcome you can report.
+11. If this run is governed by **`AGENTS.md`** (Cursor Cloud / automation): notify Max per **`v1-archived/sops/sop-master-digest.md` §7.4** and **`AGENTS.md`** — **`slack_send_message`** with **`channel_id` `D01DFNA0GBH`** after a verifier outcome you can report.
 
 ## If you cannot finish
 
@@ -75,4 +75,4 @@ Work from **`sops/sop-master-digest.md` §7.3** (and **§7.4** when **`AGENTS.md
 ## Scope
 
 - **Single run folder** per invocation unless the user explicitly starts another `run-id`.
-- **SOPs** stay in **`sops/`**; never move procedure files into **`runs/`**.
+- **V1 SOPs** stay in **`v1-archived/sops/`**; never move procedure files into **`runs/`**.

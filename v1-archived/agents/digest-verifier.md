@@ -18,7 +18,7 @@ Historical V1 checklist follows.
 
 ## Your job
 
-1. **Matrix check:** For every row in `accounts-in-scope.md`, confirm **all six** signal columns are **Attempted** OR have an explicit **user-approved Waiver** code (not “skipped by agent discretion”). For each **Attempted** cell, confirm a **batch lane log** lists that row for that signal with §7-level detail. Flag any blank cell as **INCOMPLETE**.
+1. **Matrix check:** For every row in `v1-archived/accounts-in-scope.md`, confirm **all six** signal columns are **Attempted** OR have an explicit **user-approved Waiver** code (not “skipped by agent discretion”). For each **Attempted** cell, confirm a **batch lane log** lists that row for that signal with §7-level detail. Flag any blank cell as **INCOMPLETE**.
 2. **Sweep check:** Confirm **`runs/{run-id}/run-manifest-*.md`** §7.2 audit table lists outlets visited and **each candidate article URL** with outcome (included / excluded / paywall), or **user-approved RF-WAIVER** for skipping the sweep.
 3. **Language check:** For French/German (and other non-English HQ) rows, confirm **batch lane logs** show **§7.1a**-style queries (ISO code + full query string) for signals where the manifest marks **Attempted**—spot-check at least two such rows per language group present in scope.
 4. **Silence logic:** If Part B lists **RF-SILENCE-ROW**, confirm the log proves **all six** signals were attempted for that row (or waiver). Reject **RF-SILENCE-ROW** if any signal was never attempted.

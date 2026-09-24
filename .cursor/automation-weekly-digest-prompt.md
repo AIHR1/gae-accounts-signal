@@ -14,7 +14,7 @@ You are running the **weekly Account Signals** digest for **gae-accounts-signal*
    - **`sops/sop-account-reasoning-relevance-v2.md`**
    - **`sops/sop-master-digest-v2.md`**
    The portfolio source of truth is **`account-context/GAE_Top_Accounts_Context_23september.xlsx`**.
-   Do not use **`accounts-in-scope.md`**, **`sops/v1-archived/`**, **`.cursor/agents/digest-orchestrator.md`**, **`.cursor/agents/digest-verifier.md`**, or **`.cursor/agents/signal-sop-runner.md`**. Do not run six signal lanes. There is no Monitor category and no minimum number of insights.
+   Do not use **`v1-archived/`**. Do not run six signal lanes. There is no Monitor category and no minimum number of insights.
 
 2. Set the review window to the Monday–Sunday week that has just ended in Europe/Amsterdam. Name the **`run-id`** from those dates, for example `2026-09-15-to-2026-09-21`. Write the working files under **`runs/{run-id}/`** only.
    Do not look in git for an earlier run. **`runs/`** is gitignored, so a fresh checkout will not contain one. Do not lengthen the window to produce more insights, and do not backfill older weeks.
